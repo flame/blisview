@@ -1,0 +1,64 @@
+--Get python 3
+  sudo apt-get install python3
+
+--Get python 3 setup tools, mainly for pip3
+  sudo apt-get install python3-setuptools
+  sudo easy_install3 pip
+
+--Get django 1.9.4
+  sudo pip3 install Django
+
+--Get matplotlib, it is what ill use to generate the plots
+  sudo apt-get install python3-matplotlib
+
+--Follow istructions here for initial django setup/boilerplate code
+--use python3 instead of python in all instances
+  https://docs.djangoproject.com/en/1.9/intro/tutorial01/
+
+--Make sure you fill in the bliss test suite location variable at the top of graph/view.py
+--This will be where the program looks for you built blis test suite, and runs the tests
+
+--Use this command to interact with the Django API
+--This will also allow your python shell to have access to your webpage's settings.py
+  python3 manage.py shell
+
+--------------------------------API/database interactions-------------------------------
+----How to interact with the databases within the API
+ >>> from graph.models import Attribute, Options
+ >>> from django.utils import timezone
+
+----Example of a possible attribute insertion 
+ >>> a = Attribute(attribute_text="Max Problem Size", pub_date=timezone.now())
+ >>> a.save()
+
+----make modifications to an specific column as such
+ >>> a.attribute_text="Architecture"
+
+----DBName.objects.all() returns an array containing all entries in the spcified database
+ >>> Attribute.objects.all()
+
+----How to add options to attributes
+------this gets the instance of the attribute you wish to add to (ie: attribute #1)
+ >>> a1 = Attribute.objects.get(id=1)
+------this line creates a new option, with the given value
+ >>> a1.options_set.create(options_text='100', votes=0)
+------this shows all current options for the instanced attribute
+ >>> a1.options_set.all()
+
+----How to remove a incorrect option
+ >>> err = a1.options_set.filter(options_text='sandybridge')
+ >>> err.delete()
+-----------------------------------------------------------------------------------------
+
+
+--Adding a website admin (this will prompt you to enter a username/email and password)
+  python3 manage.py createsuperuser
+--to access the admin page of the site, to http://THE-REAL-URL/admin/
+
+--How to create the Database tables when new models are added
+  python3 manage.py makemigrations graph
+  python3 manage.py migrate
+
+--To actually run the delevopement server 
+  python3 manage.py runserver
+
