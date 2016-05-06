@@ -1,0 +1,29 @@
+Directory Structure
+
+mysight
+--graph
+  --migrations                     : database midgrations
+  --static                         : all the images, css files, and fonts for the website
+    --graph
+      --fonts
+      --images                     : repository where all graphs are stored after creation
+      --default.css                : main css file
+      --fonts.css
+      --template_input.general     : template for generating the input.general for the blis test suite
+      --template_input.operations  : template for generating the input.operations for the blis test suite
+  --templates                      : the html templates
+  --__init__.py
+  --admin.py                       : controls what is visible on the /admin page of the website
+  --apps.py
+  --models.py                      : database objects and thier(any changes here require database migrations!!!)
+  --test_write.py                  : manual graph generation for testing
+  --tests.py
+  --urls.py                        : url definitions and redirects to views within the Graph app
+  --views.py                       : connects the front end with models in the back end (setup blis location here)
+--mysite
+  --__init__.py
+  --settings.py                    : django main settings file
+  --urls.py                        : redirects urls to their specific apps 
+  --wsgi.py                        
+--db.sqlite3                       : the database
+--manage.py                        : where you run most command line developement tasks from

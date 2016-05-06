@@ -5,7 +5,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# this file can be sued to manually generate the graphs and is just a general hands on test tool
+# this file can be used to manually generate the graphs and is just a general hands on test tool
 def create_test_files(name):
 	results_file = open("static/graph/blis/testsuite/"+str(name)+".m", "r")
 	x = [0]

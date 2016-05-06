@@ -1,9 +1,9 @@
 
-BLISView
+blisview
 License
 ---
 
-The BLISView webtool is licensed under the following license, typically
+The blisview webtool is licensed under the following license, typically
 known as the "new" or "modified" or "3-clause" BSD license.
 
 
